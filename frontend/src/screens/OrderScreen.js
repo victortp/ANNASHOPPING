@@ -198,16 +198,7 @@ const OrderScreen = ({ match, history }) => {
                 </Row>
               </ListGroup.Item>
 
-              {/* <ListGroup.Item>
-                <a
-                  href="https://drive.google.com/drive/folders/14whII9_d7N_VpJIqyeiyY9UoizauatDX?usp=sharing"
-                  target="_blank"
-                  without="true"
-                  rel="noreferrer"
-                >
-                  <Button className="btn btn-block">Upload Your Files</Button>
-                </a>
-              </ListGroup.Item> */}
+
 
               {!order.isPaid && (
                 <ListGroup.Item>

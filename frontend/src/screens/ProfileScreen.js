@@ -127,6 +127,7 @@ const ProfileScreen = ({ location, history }) => {
                 <th>TOTAL</th>
                 <th>PAID</th>
                 <th>DELIVERED</th>
+                <th>Order Status</th>
                 <th></th>
               </tr>
             </thead>
@@ -149,6 +150,9 @@ const ProfileScreen = ({ location, history }) => {
                     ) : (
                       <i className='fas fa-times' style={{ color: 'red' }}></i>
                     )}
+                  </td>
+                  <td>
+                    Order Status: {order.orderStatus}
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
