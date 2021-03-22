@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Link } from "react-router-dom";
-import { Row, Col, ListGroup, Image, Card, Button} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -84,15 +84,12 @@ const OrderScreen = ({ match, history }) => {
   };
 
   const paidMark = () => {
-    dispatch(payOrder(orderId))
-  }
+    dispatch(payOrder(orderId));
+  };
 
   const deliverHandler = () => {
     dispatch(deliverOrder(order));
   };
-
-
-
 
   return loading ? (
     <Loader />
@@ -104,6 +101,22 @@ const OrderScreen = ({ match, history }) => {
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
+            <ListGroup.Item>
+              Message From Owner:
+              <br></br>
+              <br></br>
+              Thanks for shopping small 🛍
+              <br></br>
+              By supporting a small business , you help support a dream ! 💭 and
+              so much more . Every small buisness owner does a little happy
+              dance when you order ❤️ You aren’t just buying an item .🛒 your
+              buying a peice of heart.
+              <br></br>
+              Your purchase is truly appreciated🦋
+              <br></br>
+              <br></br>
+              ANNA SWEET TREATS
+            </ListGroup.Item>
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
@@ -198,8 +211,6 @@ const OrderScreen = ({ match, history }) => {
                 </Row>
               </ListGroup.Item>
 
-
-
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
@@ -225,7 +236,11 @@ const OrderScreen = ({ match, history }) => {
                     Mark As Delivered/Shipped
                   </Button>
 
-                  <Button type="button" className="btn btn-block" onClick={paidMark}>
+                  <Button
+                    type="button"
+                    className="btn btn-block"
+                    onClick={paidMark}
+                  >
                     Mark As Paid
                   </Button>
                 </ListGroup.Item>
