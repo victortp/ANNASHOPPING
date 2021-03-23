@@ -105,15 +105,18 @@ const OrderScreen = ({ match, history }) => {
               Message From Owner:
               <br></br>
               <br></br>
-              Thanks for shopping small 🛍
+              Thank you {userInfo.name} for shopping at Anna Sweet Treats!
+              <br></br>
               <br></br>
               By supporting a small business , you help support a dream ! 💭 and
               so much more . Every small buisness owner does a little happy
               dance when you order ❤️ You aren’t just buying an item .🛒 your
-              buying a peice of heart.
+              buying a piece of heart.
               <br></br>
               Your purchase is truly appreciated🦋
               <br></br>
+              <br></br>
+              Sincerely,
               <br></br>
               ANNA SWEET TREATS
             </ListGroup.Item>

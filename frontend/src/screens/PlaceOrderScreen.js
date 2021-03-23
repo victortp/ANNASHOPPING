@@ -28,7 +28,7 @@ const PlaceOrderScreen = ({ history }) => {
     cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
 
-  cart.feePrice = addDecimals(Number((0.030 * cart.itemsPrice) + 0.30).toFixed(2));
+  cart.feePrice = addDecimals(Number(0.03 * cart.itemsPrice + 0.3).toFixed(2));
 
   cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.feePrice)).toFixed(
     2
@@ -42,6 +42,7 @@ const PlaceOrderScreen = ({ history }) => {
 
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, success, error } = orderCreate;
+
 
   useEffect(() => {
     if (success) {
@@ -126,6 +127,7 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
+
 
               <ListGroup.Item>
                 <Row>
