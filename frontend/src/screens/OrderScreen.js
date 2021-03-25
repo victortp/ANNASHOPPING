@@ -83,6 +83,8 @@ const OrderScreen = ({ match, history }) => {
     dispatch(payOrder(orderId, paymentResult));
   };
 
+
+
   const paidMark = () => {
     dispatch(payOrder(orderId));
   };

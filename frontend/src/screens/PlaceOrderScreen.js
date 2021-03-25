@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect,  } from "react";
+// Import useState above when get the coupon working
 import { Link } from "react-router-dom";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +9,11 @@ import { createOrder } from "../actions/orderActions";
 import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 import { USER_DETAILS_RESET } from "../constants/userConstants";
 
+
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
+
+
 
   const cart = useSelector((state) => state.cart);
 
@@ -30,15 +34,13 @@ const PlaceOrderScreen = ({ history }) => {
 
   cart.feePrice = addDecimals(Number(0.03 * cart.itemsPrice + 0.3).toFixed(2));
 
+  
   cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.feePrice)).toFixed(
     2
   );
 
-  // if (discountCode == "Anna"){
-  //   cart.totalPrice = cart.totalPrice - 5
-  // } else {
-  //   cart.totalPrice = cart.totalPrice
-  // }
+
+
 
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, success, error } = orderCreate;
@@ -50,6 +52,7 @@ const PlaceOrderScreen = ({ history }) => {
       dispatch({ type: USER_DETAILS_RESET });
       dispatch({ type: ORDER_CREATE_RESET });
     }
+
     // eslint-disable-next-line
   }, [history, success]);
 
@@ -59,6 +62,7 @@ const PlaceOrderScreen = ({ history }) => {
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
+        couponCode: cart.couponCode,
         itemsPrice: cart.itemsPrice,
         feePrice: cart.feePrice,
         totalPrice: cart.totalPrice,
@@ -66,8 +70,19 @@ const PlaceOrderScreen = ({ history }) => {
     );
   };
 
+  // let [title, setTitle] = useState('')
+  // // eslint-disable-next-line
+  //   title = console.log(title);
+
+  //   // Checks if the input field matches with the variable then gets cart total price and subtracts it
+  //   if (title === "Anna" || title === "anna"){
+  //     cart.totalPrice = cart.totalPrice - 3
+  //   }
+
   return (
+    
     <>
+    
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
@@ -128,7 +143,6 @@ const PlaceOrderScreen = ({ history }) => {
                 <h2>Order Summary</h2>
               </ListGroup.Item>
 
-
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
@@ -147,6 +161,13 @@ const PlaceOrderScreen = ({ history }) => {
                 <Row>
                   <Col>Total</Col>
                   <Col>${cart.totalPrice}</Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  {/* User enters the code from the variable below. Live update on change */}
+                <label>Enter Your Coupon Code</label>
+                {/* <input onChange={event => setTitle(event.target.value)} className="couponvalue" /> */}
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
