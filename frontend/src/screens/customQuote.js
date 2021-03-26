@@ -29,6 +29,13 @@ const customQuote = () => {
             placeholder="Enter Your Email"
             required
           />
+          <label>Message</label>
+          <input
+            type="text"
+            name="message"
+            placeholder="Enter Your Message"
+            required
+          />
           <button type="submit">Send</button>
         </form>
       </div>
