@@ -78,3 +78,29 @@ h2 {
   width: 100%;
   padding: 5px;
 }
+
+.formm input{
+  width: 100%;
+  padding: 15px;
+  border: transparent;
+  outline: transparent;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.formm button{
+  padding: 15px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+  transition: .25s ease;
+}
+
+.formm button:hover{
+  background-color: #333;
+}
+
+.formm button:active{
+  background-color: rgb(90, 87, 87);
+}
